@@ -1,0 +1,35 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-card {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 40px;
+  text-align: center;
+
+  button {
+    width: 100px;
+    align-self: center;
+  }
+
+  h4 {
+    color: var(--mdc-protected-button-label-text-color);
+    font-size: x-large;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 500px) {
+  .login-card {
+    width: 300px;
+  }
+}
