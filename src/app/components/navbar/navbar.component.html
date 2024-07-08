@@ -1,0 +1,26 @@
+<mat-toolbar class="toolbar">
+  <mat-toolbar-row>
+    <span>Movie Bucket List</span>
+    <span class="toolbar__example-spacer"></span>
+
+    <button
+      class="toolbar-button route"
+      routerLink="/movies-list"
+      routerLinkActive="active"
+    >
+      All movies
+    </button>
+    <button
+      class="toolbar-button route"
+      routerLink="/create"
+      routerLinkActive="active"
+    >
+      Add movie
+    </button>
+
+    <span class="toolbar__example-spacer"></span>
+    <button class="toolbar-button logout" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

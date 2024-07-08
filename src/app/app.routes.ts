@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { AddMovieComponent } from './add-movie/add-movie.component';
-import { MoviesListComponent } from './movies-list/movies-list.component';
-import { LayoutComponent } from './layout/layout.component';
-import { LoginComponent } from './login/login.component';
+import { AddMovieComponent } from './components/add-movie/add-movie.component';
+import { MoviesListComponent } from './components/movies-list/movies-list.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [

@@ -1,0 +1,41 @@
+<div class="add-movie-page">
+  <div class="add-movie-container">
+    <mat-card class="add-movie-card">
+      <h4>Add Movie to Bucket List</h4>
+      <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" />
+          <mat-error *ngIf="movieForm.get('title')?.hasError('required')">
+            Title is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Year</mat-label>
+          <input matInput type="number" formControlName="year" />
+          <mat-error *ngIf="movieForm.get('year')?.hasError('required')">
+            Year is required
+          </mat-error>
+          <mat-error
+            *ngIf="
+              movieForm.get('year')?.hasError('min') ||
+              movieForm.get('year')?.hasError('max')
+            "
+          >
+            Year must be between 1900 and {{ currentYear }}
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!movieForm.valid"
+        >
+          Add Movie
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</div>

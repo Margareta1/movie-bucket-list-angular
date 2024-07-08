@@ -1,0 +1,32 @@
+.toolbar{
+  background-color: rgb(250, 177, 188);
+  color: rgb(107, 1, 18);
+  font-size: xx-large;
+  font-weight: 800;
+  height: 3rem;
+}
+
+.toolbar__example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  margin: 5px 10px;
+  padding: 5px 15px;
+  border-radius: 20px;
+  border: 0px solid;
+  color: white;
+  font-size: large;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  &.logout {
+    background-color: green;
+  }
+
+  &.route {
+    background-color: rgb(255, 99, 125);
+  }
+}

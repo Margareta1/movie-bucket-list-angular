@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LayoutComponent } from './layout/layout.component';
-import { MoviesListComponent } from './movies-list/movies-list.component';
-import { AddMovieComponent } from './add-movie/add-movie.component';
-import { LoginComponent } from './login/login.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { MoviesListComponent } from './components/movies-list/movies-list.component';
+import { AddMovieComponent } from './components/add-movie/add-movie.component';
+import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
