@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { Movie } from '../../models/movie.model';
+import { MovieStorageService } from '../../services/movie-storage.service';
 
 @Component({
   selector: 'app-movies-list',
@@ -16,19 +17,19 @@ export class MoviesListComponent implements OnInit {
   movies: Movie[] = [];
   displayedColumns: string[] = ['title', 'year', 'delete'];
 
-  loadMovies(): void {
-    const storedMovies = localStorage.getItem('movies');
-    if (storedMovies) {
-      this.movies = JSON.parse(storedMovies);
-    }
-  }
+  constructor(private movieStorageService: MovieStorageService) {}
 
   ngOnInit(): void {
     this.loadMovies();
   }
 
+  loadMovies(): void {
+    this.movies = this.movieStorageService.loadMovies();
+  }
+
   deleteMovie(movie: Movie): void {
-    this.movies = this.movies.filter((m) => m !== movie);
-    localStorage.setItem('movies', JSON.stringify(this.movies));
+    this.movieStorageService.deleteMovie(movie);
+    this.loadMovies();
+    console.log(movie, this.movies);
   }
 }

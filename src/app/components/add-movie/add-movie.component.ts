@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MovieStorageService } from '../../services/movie-storage.service';
 
 @Component({
   selector: 'app-add-movie',
@@ -31,7 +32,10 @@ export class AddMovieComponent implements OnInit {
   movies: Movie[] = [];
   currentYear: number = new Date().getFullYear();
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private movieStorageService: MovieStorageService
+  ) {
     this.movieForm = this.fb.group({
       title: ['', Validators.required],
       year: [
@@ -50,14 +54,11 @@ export class AddMovieComponent implements OnInit {
   }
 
   loadMovies(): void {
-    const storedMovies = localStorage.getItem('movies');
-    if (storedMovies) {
-      this.movies = JSON.parse(storedMovies);
-    }
+    this.movies = this.movieStorageService.loadMovies();
   }
 
   saveMovies(): void {
-    localStorage.setItem('movies', JSON.stringify(this.movies));
+    this.movieStorageService.saveMovies(this.movies);
     this.loadMovies();
   }
 
